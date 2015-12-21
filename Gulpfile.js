@@ -26,7 +26,7 @@ gulp.task('watch', function() {
     gulp.src(event.path).pipe(connect.reload());
   });
 
-  gulp.watch(['./*.js', 'node_modules/action-cable-react/dist/**/*.js'], ['default']);
+  gulp.watch(['./*.js'], ['default']);
 });
 
 gulp.task('connect', function() {
