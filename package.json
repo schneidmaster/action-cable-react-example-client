@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/schneidmaster/action-cable-react-example-client#readme",
   "dependencies": {
-    "action-cable-react": "git+https://github.com/schneidmaster/action-cable-react.git",
+    "action-cable-react": "../action-cable-react",
     "react": "^0.14.3",
     "react-dom": "^0.14.3"
   },

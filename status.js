@@ -4,12 +4,20 @@ import React from 'react';
 module.exports = React.createClass({
   mixins: [CableMixin(React), ChannelMixin('AppearanceChannel')],
 
-  appear() {
-    this.perform('appear');
+  handleConnected() {
+
   },
 
-  away() {
-    this.perform('away');
+  handleDisconnected() {
+
+  },
+
+  handleDidAppear() {
+    this.perform('AppearanceChannel', 'appear');
+  },
+
+  handleDidGoAway() {
+    this.perform('AppearanceChannel', 'away');
   },
 
   render() {

@@ -21,11 +21,26 @@ gulp.task('copy', function() {
     .pipe(copy('built'));
 });
 
+gulp.task('watch', function() {
+  gulp.watch(['./*.js'], function(event) {
+    gulp.src(event.path).pipe(connect.reload());
+  });
+
+  gulp.watch(['./*.js', 'node_modules/action-cable-react/dist/**/*.js'], ['default']);
+});
+
 gulp.task('connect', function() {
   connect.server({
     root: ['built'],
-    port: 9010
+    port: 9010,
+    livereload: {
+      port: 32834
+    },
+    connect: {
+      redirect: false
+    }
   });
 });
 
 gulp.task('default', ['clean', 'webpack', 'copy']);
+gulp.task('serve', ['default', 'connect', 'watch']);
