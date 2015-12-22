@@ -18,13 +18,13 @@ module.exports = React.createClass({
     console.log('Disconnected!')
   },
 
-  handleMessage(data) {
+  handleNewMessage(data) {
     console.log('New message: ' + data.message);
     this.setState((state) => { messages: state.messages.push(data) });
   },
 
   handleSend() {
-    this.perform('ChatChannel', 'message', { timestamp: Date.now(), message: document.getElementById('message').value });
+    this.perform('ChatChannel', 'newMessage', { timestamp: Date.now(), message: document.getElementById('message').value });
     document.getElementById('message').value = '';
   },
 
